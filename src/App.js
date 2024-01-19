@@ -32,6 +32,7 @@ AWS.config.update({
 //Function to call API
 
 var callAPI = (text, dest_language) =>{
+  console.log(text);
   var myHeaders = new Headers();
   myHeaders.append("Context-Type", "application/json");
   var raw = JSON.stringify({"text": text, "dest_language": dest_language})
