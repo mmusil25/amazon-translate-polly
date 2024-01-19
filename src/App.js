@@ -85,8 +85,8 @@ export default function UserSubmission() {
     const form = e.target;
     const formData = new FormData(form);
 
-    console.log(formData.get('input-field'));
-    callAPI(formData.get('input-field'))    
+    console.log(formData.get('input-field'), formData.get("language-choice"));
+    callAPI(formData.get('input-field'),formData.get("language-choice"));  
   }
 
   
@@ -121,7 +121,7 @@ export default function UserSubmission() {
       <TextField fullWidth name='input-field' id="outlined-basic" label="Your input" variant="outlined" />
       <Typography mt={2}></Typography>
       <BlueBar/>
-      <InputLabel id="demo-simple-select-label">Language</InputLabel>
+      <InputLabel name="language-choice" id="demo-simple-select-label">Language</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
