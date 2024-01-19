@@ -43,7 +43,7 @@ var callAPI = (text, dest_language) =>{
   };
 
   //Make api call and get response
-  fetch("https://mcaim908se.execute-api.us-east-2.amazonaws.com/default/translate-polly-function", requestOptions)
+  fetch("https://mcaim908se.execute-api.us-east-2.amazonaws.com/default/", requestOptions)
   .then(response => response.text())
   .then(result => alert(JSON.parse(result).body))
   .catch(error => console.log('error', error));
