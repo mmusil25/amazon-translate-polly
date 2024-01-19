@@ -43,7 +43,7 @@ var callAPI = (text, dest_language) =>{
   };
 
   //Make api call and get response
-  fetch("https://mcaim908se.execute-api.us-east-2.amazonaws.com/dev", requestOptions)
+  fetch("https://yo6clvqb7i.execute-api.us-east-2.amazonaws.com/dev", requestOptions)
   .then(response => response.text())
   .then(result => alert(JSON.parse(result).body))
   .catch(error => console.log('error', error));
