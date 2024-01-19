@@ -10,6 +10,11 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import AWS from 'aws-sdk';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 require ('aws-sdk');
 
 // Common Variables for AWS
@@ -26,10 +31,10 @@ AWS.config.update({
 
 //Function to call API
 
-var callAPI = (text) =>{
+var callAPI = (text, dest_language) =>{
   var myHeaders = new Headers();
   myHeaders.append("Context-Type", "application/json");
-  var raw = JSON.stringify({"text": text})
+  var raw = JSON.stringify({"text": text, "dest_language": dest_language})
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -38,7 +43,7 @@ var callAPI = (text) =>{
   };
 
   //Make api call and get response
-  fetch("https://mwbhfmg0p8.execute-api.us-east-2.amazonaws.com/comprehend-dev-stage", requestOptions)
+  fetch("https://mcaim908se.execute-api.us-east-2.amazonaws.com/default/translate-polly-function", requestOptions)
   .then(response => response.text())
   .then(result => alert(JSON.parse(result).body))
   .catch(error => console.log('error', error));
@@ -65,6 +70,12 @@ function BlueBar() {
 
 export default function UserSubmission() {
 
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   function handleSubmit(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -74,7 +85,7 @@ export default function UserSubmission() {
     const formData = new FormData(form);
 
     console.log(formData.get('input-field'));
-    callAPI(formData.get('input-field'))
+    callAPI(formData.get('input-field'))    
   }
 
   
@@ -109,10 +120,30 @@ export default function UserSubmission() {
       <TextField fullWidth name='input-field' id="outlined-basic" label="Your input" variant="outlined" />
       <Typography mt={2}></Typography>
       <BlueBar/>
+      <InputLabel id="demo-simple-select-label">Language</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={age}
+        label="language"
+        onChange={handleChange}
+      >
+      <MenuItem value={"fr"}>French</MenuItem>
+      <MenuItem value={"de"}>German</MenuItem>
+      <MenuItem value={"ja"}>Japanese</MenuItem>
+      <MenuItem value={"tr"}>Turkish</MenuItem>
+      </Select>
+
       <Typography mt={2}></Typography>
       <Typography align='center'>
-      <Button variant="contained" type="submit">Submit for sentiment analysis</Button>
+      <Button variant="contained" type="submit">Submit for translation</Button>
       </Typography>
+
+  <FormControl fullWidth>
+  
+</FormControl>
+
+
     </form>
     </div>
     <Typography mt={2}></Typography>
