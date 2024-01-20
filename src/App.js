@@ -22,6 +22,7 @@ var Region = "us-east-2";
 var IdentityPoolID = "us-east-2:aa3baaa3-c79c-4b4a-95d8-dfc9f7ddd81c";
 var translation_output = "your translation"
 
+
 AWS.config.update({
 	region: Region,
 	credentials: new AWS.CognitoIdentityCredentials({
@@ -32,7 +33,7 @@ AWS.config.update({
 
 //Function to call API
 
-var callAPI = (text, dest_language) =>{
+var callAPI = (text, dest_language, setTranslation_output) =>{
   console.log(text);
   console.log(dest_language);
   var myHeaders = new Headers();
@@ -53,6 +54,7 @@ var callAPI = (text, dest_language) =>{
     console.log(JSON.parse(result).body);
     translation_output = JSON.parse(result).body[0];
     console.log(translation_output);
+    setTranslation_output(JSON.parse(result).body);
     })
   .catch(error => console.log('error', error));
 
@@ -79,6 +81,7 @@ function BlueBar() {
 export default function UserSubmission() {
 
   const [age, setAge] = React.useState('');
+  const [translation_output, setTranslation_output] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -93,7 +96,7 @@ export default function UserSubmission() {
     const formData = new FormData(form);
 
     console.log(formData.get('input-field'), formData.get("language-choice"));
-    callAPI(formData.get('input-field'),formData.get("language-choice"));  
+    callAPI(formData.get('input-field'),formData.get("language-choice"), setTranslation_output);  
   }
 
   
