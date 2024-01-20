@@ -135,6 +135,7 @@ export default function UserSubmission() {
       <MenuItem value={"de"}>German</MenuItem>
       <MenuItem value={"ja"}>Japanese</MenuItem>
       <MenuItem value={"tr"}>Turkish</MenuItem>
+      <MenuItem value={"ru"}>Russian</MenuItem>
       </Select>
 
       <Typography mt={2}></Typography>
