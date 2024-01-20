@@ -50,7 +50,7 @@ var callAPI = (text, dest_language) =>{
   .then(response => response.text())
   .then(result => {
     alert(JSON.parse(result).body);
-    console.log(JSON.parse(result.body));
+    console.log(JSON.parse(result).body);
     translation_output = JSON.parse(result).body["TranslatedText"];
     }
     )
