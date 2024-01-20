@@ -130,6 +130,7 @@ export default function UserSubmission() {
         value={age}
         label="language"
         onChange={handleChange}
+        defaultValue={"fr"}
       >
       <MenuItem value={"fr"}>French</MenuItem>
       <MenuItem value={"de"}>German</MenuItem>
