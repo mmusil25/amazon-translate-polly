@@ -33,6 +33,7 @@ AWS.config.update({
 
 var callAPI = (text, dest_language) =>{
   console.log(text);
+  console.log(dest_language);
   var myHeaders = new Headers();
   myHeaders.append("Context-Type", "application/json");
   var raw = JSON.stringify({"text": text, "dest_language": dest_language})
@@ -121,8 +122,9 @@ export default function UserSubmission() {
       <TextField fullWidth name='input-field' id="outlined-basic" label="Your input" variant="outlined" />
       <Typography mt={2}></Typography>
       <BlueBar/>
-      <InputLabel name="language-choice" id="demo-simple-select-label">Language</InputLabel>
+      <InputLabel id="demo-simple-select-label">Language</InputLabel>
       <Select
+        name="language-choice"
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={age}
