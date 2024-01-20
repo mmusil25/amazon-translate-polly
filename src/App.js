@@ -50,13 +50,11 @@ var callAPI = (text, dest_language, setTranslation_output) =>{
   fetch("https://yo6clvqb7i.execute-api.us-east-2.amazonaws.com/dev", requestOptions)
   .then(response => response.text())
   .then(result => {
-    alert(JSON.parse(result).body);
-    console.log(JSON.parse(result).body);
-    console.log(JSON.parse(result)["TranslatedText"]);
-    console.log(JSON.parse(result).body["TranslatedText"]);
-    console.log(JSON.parse(result).body["TranslatedText"]);
-    console.log(JSON.parse(result).body.TranslatedText);
-    var translation_output = JSON.parse(result).SourceLanguageCode;
+    var parsed = JSON.parse(result).body
+    alert(parsed);
+    console.log(parsed);
+    console.log(parsed.TranslatedText);
+    var translation_output = parsed.TranslatedText;
     console.log(translation_output);
     setTranslation_output(translation_output);
     })
