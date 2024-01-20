@@ -52,7 +52,7 @@ var callAPI = (text, dest_language, setTranslation_output) =>{
   .then(result => {
     var pre_parsed = JSON.parse(result).body;
     var parsed = JSON.parse(pre_parsed);
-    alert(parsed);
+    //alert(parsed);
     console.log(parsed);
     console.log(parsed.TranslatedText);
     var translation_output = parsed.TranslatedText;
@@ -157,6 +157,7 @@ export default function UserSubmission() {
       <MenuItem value={"no"}>Norwegian</MenuItem>
       <MenuItem value={"sv"}>Swedish</MenuItem>
       <MenuItem value={"pl"}>Polish</MenuItem>
+      <MenuItem value={"it"}>Italian</MenuItem>
 
       </Select>
 
