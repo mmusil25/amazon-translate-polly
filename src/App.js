@@ -20,6 +20,7 @@ require ('aws-sdk');
 // Common Variables for AWS
 var Region = "us-east-2";
 var IdentityPoolID = "us-east-2:aa3baaa3-c79c-4b4a-95d8-dfc9f7ddd81c";
+var translation_output = "your translation"
 
 AWS.config.update({
 	region: Region,
@@ -47,7 +48,13 @@ var callAPI = (text, dest_language) =>{
   //Make api call and get response
   fetch("https://yo6clvqb7i.execute-api.us-east-2.amazonaws.com/dev", requestOptions)
   .then(response => response.text())
-  .then(result => alert(JSON.parse(result).body))
+  .then(result => {
+    alert(JSON.parse(result).body);
+    console.log(JSON.parse(result.body));
+    translation_output = JSON.parse(result).body["TranslatedText"];
+    }
+    )
+
   .catch(error => console.log('error', error));
 
 }
@@ -154,7 +161,12 @@ export default function UserSubmission() {
     <Typography mt={2}></Typography>
     <BlueBar/>
     <Typography mt={2}></Typography>
-    <TextField fullWidth name='output-field' id="outlined-basic" label="Translation Result" variant="outlined" />
+    <TextField fullWidth 
+      name='output-field'
+      value={translation_output} 
+      id="outlined-basic" 
+      label="Translation Result" 
+      variant="outlined" />
     <Typography mt={2}></Typography>
     <BlueBar/>
     <Typography mt={2}></Typography>
