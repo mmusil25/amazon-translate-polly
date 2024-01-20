@@ -146,9 +146,18 @@ export default function UserSubmission() {
       >
       <MenuItem value={"fr"}>French</MenuItem>
       <MenuItem value={"de"}>German</MenuItem>
-      <MenuItem value={"ja"}>Japanese</MenuItem>
+      <MenuItem value={"es"}>Spanish</MenuItem>
       <MenuItem value={"tr"}>Turkish</MenuItem>
       <MenuItem value={"ru"}>Russian</MenuItem>
+      <MenuItem value={"ar"}>Arabic</MenuItem>
+      <MenuItem value={"zh"}>Chinese</MenuItem>
+      <MenuItem value={"nl"}>Dutch</MenuItem>
+      <MenuItem value={"el"}>Greek</MenuItem>
+      <MenuItem value={"ja"}>Japanese</MenuItem>
+      <MenuItem value={"no"}>Norwegian</MenuItem>
+      <MenuItem value={"sv"}>Swedish</MenuItem>
+      <MenuItem value={"pl"}>Polish</MenuItem>
+
       </Select>
 
       <Typography mt={2}></Typography>
