@@ -52,7 +52,8 @@ var callAPI = (text, dest_language, setTranslation_output) =>{
   .then(result => {
     alert(JSON.parse(result).body);
     console.log(JSON.parse(result).body);
-    translation_output = JSON.parse(result).body[0];
+    console.log(JSON.parse(result)["TranslatedText"]);
+    translation_output = JSON.parse(result)["TranslatedText"];
     console.log(translation_output);
     setTranslation_output(translation_output);
     })
