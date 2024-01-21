@@ -120,11 +120,11 @@ export default function UserSubmission() {
     <Typography mt={2}></Typography>
 
     <h1>
-      Amazon Translate and Polly Project
+      Amazon Translate Project
     </h1>
 
     <p>
-      Enter your text to be translated
+      Enter your text to be translated. The input language will be auto-detected.
     </p>
 
     {/* accept user input */}
@@ -158,6 +158,8 @@ export default function UserSubmission() {
       <MenuItem value={"sv"}>Swedish</MenuItem>
       <MenuItem value={"pl"}>Polish</MenuItem>
       <MenuItem value={"it"}>Italian</MenuItem>
+      <MenuItem value={"en"}>English</MenuItem>
+      <MenuItem value={"uk"}>Ukrainian</MenuItem>
 
       </Select>
 
