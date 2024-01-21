@@ -83,11 +83,11 @@ function BlueBar() {
 
 export default function UserSubmission() {
 
-  const [age, setAge] = React.useState('');
+  const [dest_lang, setDest_lang] = React.useState('');
   const [translation_output, setTranslation_output] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setDest_lang(event.target.value);
   };
 
   function handleSubmit(e) {
@@ -139,7 +139,7 @@ export default function UserSubmission() {
         name="language-choice"
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={age}
+        value={dest_lang}
         label="language"
         onChange={handleChange}
         defaultValue={"fr"}
@@ -171,21 +171,16 @@ export default function UserSubmission() {
 </FormControl>
 
 
-    </form>
-    </div>
-    <Typography mt={2}></Typography>
-    <BlueBar/>
-    <Typography mt={2}></Typography>
-    <TextField fullWidth 
-      name='output-field'
-      value={translation_output} 
-      id="outlined-basic" 
-      label="Translation Result" 
-      variant="outlined" />
-    <Typography mt={2}></Typography>
-    <BlueBar/>
-    <Typography mt={2}></Typography>
-    
+  </form>
+  </div>
+  <Typography mt={2}></Typography>
+  <BlueBar/>
+  <Typography mt={2}></Typography>
+  <TextField fullWidth name='output-field' value={translation_output} id="outlined-basic"
+    defaultValue={"Bonjour"} label="Translation Result" variant="outlined" />
+  <Typography mt={2}></Typography>
+  <BlueBar/>
+  <Typography mt={2}></Typography>
   </Box>
   </Paper>
   
