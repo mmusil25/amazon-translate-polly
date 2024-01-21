@@ -160,6 +160,7 @@ export default function UserSubmission() {
       <MenuItem value={"it"}>Italian</MenuItem>
       <MenuItem value={"en"}>English</MenuItem>
       <MenuItem value={"uk"}>Ukrainian</MenuItem>
+      <MenuItem value={"he"}>Hebrew</MenuItem>
 
       </Select>
 
